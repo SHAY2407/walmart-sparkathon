@@ -1,0 +1,30 @@
+.dashboard-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px; /* Adjust the gap as needed */
+  }
+  
+  .metrics-column {
+    flex: 1;
+  }
+  
+  .chart-column {
+    flex: 2; /* Adjust this value to control the width of the chart area */
+  }
+  
+  .metric-card {
+    margin-bottom: 20px; /* Space between cards */
+  }
+  
+  /* Add responsiveness if needed */
+  @media (max-width: 768px) {
+    .dashboard-content {
+      flex-direction: column;
+    }
+  
+    .chart-column {
+      margin-top: 20px;
+    }
+  }
+  
