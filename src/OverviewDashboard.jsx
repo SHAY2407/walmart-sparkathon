@@ -50,48 +50,52 @@ const OverviewDashboard = () => {
         <div className="container">
           <h1 className="title">Overview Dashboard</h1>
           
-          <div className="dashboard-content">
+          <div className="grid">
             <div className="metrics-column">
               <MetricCard title="Total Sales" value="$1,234,567" icon={<DollarSign />} color="blue-gradient" />
               <MetricCard title="Forecast Accuracy" value="92%" icon={<TrendingUp />} color="green-gradient" />
               <MetricCard title="Current Demand" value="15,678" icon={<Users />} color="purple-gradient" />
             </div>
             
-            <div className="chart-column">
-              <div className="chart time-series-chart">
-                <h2>Time-Series Trends</h2>
-                <ResponsiveContainer width="100%" height={300}>
-                  <LineChart data={data}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#4B5563" />
-                    <XAxis dataKey="name" stroke="#9CA3AF" />
-                    <YAxis stroke="#9CA3AF" />
-                    <Tooltip contentStyle={{ backgroundColor: '#1F2937', border: 'none', borderRadius: '0.5rem' }} />
-                    <Legend />
-                    <Line type="monotone" dataKey="sales" stroke="#3B82F6" strokeWidth={2} dot={false} />
-                    <Line type="monotone" dataKey="forecast" stroke="#10B981" strokeWidth={2} dot={false} />
-                    <Line type="monotone" dataKey="demand" stroke="#8B5CF6" strokeWidth={2} dot={false} />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-              
-              <div className="chart bar-chart">
-                <h2>Demand Distribution by Region</h2>
-                <ResponsiveContainer width="100%" height={250}>
-                  <BarChart data={regions}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#4B5563" />
-                    <XAxis dataKey="name" stroke="#9CA3AF" />
-                    <YAxis stroke="#9CA3AF" />
-                    <Tooltip contentStyle={{ backgroundColor: '#1F2937', border: 'none', borderRadius: '0.5rem' }} />
-                    <Bar dataKey="demand" fill="url(#colorGradient)" />
-                    <defs>
-                      <linearGradient id="colorGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#6366F1" stopOpacity={0.8}/>
-                        <stop offset="95%" stopColor="#6366F1" stopOpacity={0.2}/>
-                      </linearGradient>
-                    </defs>
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
+            <div className="chart time-series-chart">
+              <h2>Time-Series Trends</h2>
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={data}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#4B5563" />
+                  <XAxis dataKey="name" stroke="#9CA3AF" />
+                  <YAxis stroke="#9CA3AF" />
+                  <Tooltip contentStyle={{ backgroundColor: '#1F2937', border: 'none', borderRadius: '0.5rem' }} />
+                  <Legend />
+                  <Line type="monotone" dataKey="sales" stroke="#3B82F6" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="forecast" stroke="#10B981" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="demand" stroke="#8B5CF6" strokeWidth={2} dot={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+            
+            <div className="chart bar-chart">
+              <h2>Demand Distribution by Region</h2>
+              <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={regions}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#4B5563" />
+                  <XAxis dataKey="name" stroke="#9CA3AF" />
+                  <YAxis stroke="#9CA3AF" />
+                  <Tooltip contentStyle={{ backgroundColor: '#1F2937', border: 'none', borderRadius: '0.5rem' }} />
+                  <Bar dataKey="demand" fill="url(#colorGradient)" />
+                  <defs>
+                    <linearGradient id="colorGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#6366F1" stopOpacity={0.8}/>
+                      <stop offset="95%" stopColor="#6366F1" stopOpacity={0.2}/>
+                    </linearGradient>
+                  </defs>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            
+            <div className="chart map-placeholder">
+              <PieChart size={48} className="placeholder-icon" />
+              <h2>Map Placeholder</h2>
+              <p>Your custom map content will go here</p>
             </div>
           </div>
         </div>
@@ -99,7 +103,6 @@ const OverviewDashboard = () => {
     </div>
   );
 };
-
 
 const MetricCard = ({ title, value, icon, color }) => (
   <div className={`metric-card ${color}`}>
